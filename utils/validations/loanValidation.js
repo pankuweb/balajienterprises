@@ -20,6 +20,8 @@ const addLoanValidation = (data) => {
     fileCharges: Joi.number(),
     installmentsDate: Joi.string(),
     details: Joi.string(),
+    gaurenterName: Joi.string(),
+    gaurenterMobileNo: Joi.string(),
   });
   return schema.validate(data);
 };
@@ -43,6 +45,8 @@ const updateLoanValidation = (data) => {
     fileCharges: Joi.number(),
     installmentsDate: Joi.string(),
     details: Joi.string(),
+    gaurenterName: Joi.string(),
+    gaurenterMobileNo: Joi.string(),
   });
   return schema.validate(data);
 };
