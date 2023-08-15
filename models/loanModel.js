@@ -25,6 +25,12 @@ const loanSchema = new mongoose.Schema(
     monthlyInstallment: {
       type: Number,
     },
+    gaurenterName: {
+      type: String,
+    },
+    gaurenterMobileNo: {
+      type: String,
+    },
     billNo: {
       type: Number,
     },
