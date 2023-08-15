@@ -15,6 +15,9 @@ const BookModelSchema = new mongoose.Schema({
   customer: {
     type: String,
   },
+  mobile: {
+    type: String,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
