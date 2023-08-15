@@ -313,13 +313,12 @@ exports.createLoan = catchAsync(async (req, res, next) => {
   for (i = 0; i < req.body.termInMonth; i++) {
     var curdate = new Date(y, m + i, d);
     installmentsDates.push(moment(curdate).format(format));
-    console.log(installmentsDates, "installmentsDates");
   }
 
   //calculating bill&loan counts
   const loan = await Loan.find();
-  req.body.billNo = Number(loan[loan.length - 1].billNo) + 1;
-  req.body.loanNo = Number(loan[loan.length - 1].loanNo) + 1;
+  req.body.billNo = Number(loan.length) + 1;
+  req.body.loanNo = Number(loan.length) + 1;
 
   // adding additional fields
   const totalInt = (req.body.loanAmount / 100) * req.body.interest;

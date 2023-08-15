@@ -16,6 +16,7 @@ const installmentRouter = require("./routes/installmentsRoutes");
 const cashbookRouter = require("./routes/cashbookRoutes");
 const billRouter = require("./routes/billRoutes");
 const priceRouter = require("./routes/priceRoutes");
+const bookRouter = require("./routes/bookRoutes");
 
 const passport = require("passport");
 
@@ -90,6 +91,7 @@ app.use("/api/v1/loans", loanRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/loans/installments", installmentRouter);
 app.use("/api/v1/cashbook", cashbookRouter);
+app.use("/api/v1/book", bookRouter);
 
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));

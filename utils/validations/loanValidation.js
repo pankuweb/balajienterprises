@@ -19,6 +19,7 @@ const addLoanValidation = (data) => {
     qty: Joi.number(),
     fileCharges: Joi.number(),
     installmentsDate: Joi.string(),
+    details: Joi.string(),
   });
   return schema.validate(data);
 };
@@ -41,6 +42,7 @@ const updateLoanValidation = (data) => {
     qty: Joi.number(),
     fileCharges: Joi.number(),
     installmentsDate: Joi.string(),
+    details: Joi.string(),
   });
   return schema.validate(data);
 };

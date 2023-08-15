@@ -40,6 +40,9 @@ const loanSchema = new mongoose.Schema(
     customer: {
       type: String,
     },
+    details: {
+      type: String,
+    },
     installmentsDate: {
       type: Array,
     },
