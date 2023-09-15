@@ -42,3 +42,39 @@ exports.deleteBook = catchAsync(async (req, res, next) => {
     data: null,
   });
 });
+
+
+exports.updateBook = catchAsync(async (req, res, next) => {
+  const book = await Book.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
+
+  if (!book) {
+    return next(new AppError("No book found with that ID", 404));
+  }
+
+  res.status(200).json({
+    status: "success",
+    message: "updated successfully",
+    data: {
+      book,
+    },
+  });
+});
+
+exports.getBook = catchAsync(async (req, res, next) => {
+  const book = await Book.findById(req.params.id);
+
+  if (!book) {
+    return next(new AppError("No data found with that ID", 404));
+  }
+
+  res.status(200).json({
+    status: "success",
+    message: `Data fetched successfully`,
+    data: {
+      book,
+    },
+  });
+});

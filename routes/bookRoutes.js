@@ -11,6 +11,8 @@ router
 
 router
   .route("/:id")
+  .get(bookController.getBook)
+  .patch(bookController.updateBook)
   .delete(authController.protect, bookController.deleteBook);
 
 module.exports = router;
